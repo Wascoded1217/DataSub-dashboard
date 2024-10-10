@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./icons/css/all.min.css">
+    <link rel="shortcut icon" href="images/IbtechLogo__2.png" type="image/x-icon">
+    <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
+    <title>Dashboard</title>
+</head>
+<body>
+    <!-- modal for withdraw-->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header modal-header-data">
+            <h5 class="modal-title text-white" id="exampleModalLabel">Fund wallet</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+         <div class="wallet-funding-container modal-body w-100">
+            <form id="fundWalletForm">
+                <label for="amount">Amount to Add (USD):</label>
+                <input type="number" id="amount" name="amount" min="1" required placeholder="Enter amount">
+                <label for="paymentMethod">Select Payment Method:</label>
+                <select id="paymentMethod" name="paymentMethod" required>
+                    <option value="" disabled selected>Select a payment method</option>
+                    <option value="credit_card">Credit Card</option>
+                    <option value="debit_card">Debit Card</option>
+                    <option value="paypal">PayPal</option>
+                    <option value="bank_transfer">Bank Transfer</option>
+                    <option value="voucher">Voucher Code</option>
+                </select>
+                <div id="cardDetails">
+                    <label for="cardNumber">Card Number:</label>
+                    <input type="text" id="cardNumber" name="cardNumber" placeholder="Enter card number" pattern="\d{16}" required>
+
+                    <label for="expiryDate">Expiry Date:</label>
+                    <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YY" pattern="\d{2}/\d{2}" required>
+
+                    <label for="cvv">CVV:</label>
+                    <input type="text" id="cvv" name="cvv" placeholder="123" pattern="\d{3}" required>
+                </div>
+                <div id="voucherCode">
+                    <label for="voucher">Voucher Code:</label>
+                    <input type="text" id="voucher" name="voucher" placeholder="Enter voucher code">
+                </div>
+                <button type="submit" class=" btn-addFunds">Continue to Funding</button>
+            </form>
+        </div>
+        </div>
+    </div>
+</div>
+<!-- end modal -->
+
+<!-- modal for fund wallet 2 -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header modal-header-data">
+        <h5 class="modal-title text-white id="staticBackdropLabel">Withdraw Funds</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="withdraw-container modal-body w-100">
+        <form id="withdrawForm">
+            <label for="amount">Amount to Withdraw (USD):</label>
+            <input type="number" id="amount" name="amount" min="1" placeholder="Enter amount" required>
+            <label for="balance">Available Balance:</label>
+            <input type="text" id="balance" name="balance" value="500" readonly>
+            <label for="withdrawMethod">Select Withdrawal Method:</label>
+            <select id="withdrawMethod" name="withdrawMethod" required>
+                <option value="" disabled selected>Select a withdrawal method</option>
+                <option value="bank_transfer">Bank Transfer</option>
+                <option value="paypal">PayPal</option>
+                <option value="mobile_payment">Mobile Payment</option>
+            </select>
+            <div id="bankDetails" class="hidden">
+                <label for="bankAccount">Bank Account Number:</label>
+                <input type="text" id="bankAccount" name="bankAccount" placeholder="Enter your bank account number" required>
+                <label for="bankName">Bank Name:</label>
+                <input type="text" id="bankName" name="bankName" placeholder="Enter your bank name" required>
+            </div>
+            <div id="paypalDetails" class="hidden">
+                <label for="paypalEmail">PayPal Email:</label>
+                <input type="email" id="paypalEmail" name="paypalEmail" placeholder="Enter your PayPal email" required>
+            </div>
+            <div id="mobilePaymentDetails" class="hidden">
+                <label for="mobileNumber">Mobile Number:</label>
+                <input type="text" id="mobileNumber" name="mobileNumber" placeholder="Enter your mobile number" required>
+            </div>
+            <button type="submit" class="btn-submitWithdraw">Submit Withdrawal</button>
+        </form>
+    </div>
+    </div>
+  </div>
+</div>
+<!-- end modal -->
+
+<!-- modal for airtime -->
+ <div class="modal fade" id="staticBackdropAirtime" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header modal-header-data text-white">
+        <h5 class="modal-title text-white" id="staticBackdropLabel">Airtime TopUp</h5>
+         <button type="button" class="btn btn-white text-white" data-bs-dismiss="modal"><i class="fas fas fa fa-times"></i></button>
+      </div>
+      <div class="modal-body bg-white">
+               <form id="airtimeForm">
+                    <label for="network">Network*</label>
+                    <select id="networkMethod" name="networkMethod" required>
+                        <option value="">----------</option>
+                        <option value="glo">GLO</option>
+                        <option value="mtn">MTN</option>
+                        <option value="airtel">AIRTEL</option>
+                        <option value="mobile">9MOBILE</option>
+                    </select>
+                    <div id="airtimeDetails">
+                        <label for="airtimeType">Airtime type*</label>
+                        <select id="airtimeMethod" name="airtimeMethod" required>
+                            <option value="VTU">VTU</option>
+                            <option value="share">Share And Sell</option>
+                            <option value="awuf4u">AWUF4U</option>
+                        </select>
+                    </div>
+                    <div id="numberDetails">
+                        <label for="mobile">Mobile Number*</label>
+                        <input type="tel" id="mobile" name="mobile" placeholder="" required>
+                    </div>
+                    <div id="mobilePaymentDetails">
+                        <label for="amount">Amount*</label>
+                        <input type="number" id="amount" name="amount" placeholder="" required>
+                    </div>
+                    <button type="submit" class="btn-submitWithdraw mx-0 mt-4">Buy Now</button>
+                </form>
+        </div>
+    </div>
+  </div>
+</div>
+<!-- end modal -->
+
+<!-- modal for data -->
+ <div class="modal fade" id="staticBackdropData" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header modal-header-data text-white">
+        <h5 class="modal-title" id="staticBackdropLabel">Buy Data Plan</h5>
+         <button type="button" class="btn btn-white text-white" data-bs-dismiss="modal"><i class="fas fas fa fa-times"></i></button>
+      </div>
+       <div class="modal-body bg-white">
+               <form id="airtimeForm">
+                    <label for="network">Network*</label>
+                    <select id="networkMethod" name="networkMethod" required>
+                        <option value="">----------</option>
+                        <option value="glo">GLO</option>
+                        <option value="mtn">MTN</option>
+                        <option value="airtel">AIRTEL</option>
+                        <option value="mobile">9MOBILE</option>
+                    </select>
+                    <div id="airtimeDetails">
+                        <label for="airtimeType">Data type*</label>
+                        <select id="airtimeMethod" name="airtimeMethod" required>
+                            <option value="">----------</option>
+                            <option value="VTU">SME</option>
+                            <option value="share">GIFTING</option>
+                            <option value="awuf4u">CORPORATE GIFTING</option>
+                        </select>
+                    </div>
+                    <div id="numberDetails">
+                        <label for="mobile">Mobile Number*</label>
+                        <input type="tel" id="mobile" name="mobile" placeholder="" required>
+                    </div>
+                     <!-- The dataPlan will come from database -->
+                    <div id="dataPlan">
+                        <label for="dataPlan">Data plan</label>
+                        <select id="dataPlan" name="dataPlan" required>
+                            <option value="">----------</option>
+                            <option value="">--------</option>
+                            <option value="">--------</option>
+                            <option value="">--------</option>
+                            <option value="">--------</option>
+                            <option value="">--------</option>
+                            <option value="">--------</option>
+                            <option value="">--------</option>
+                            <option value="">--------</option>
+                            <option value="">--------</option>
+                            
+                        </select>
+                    </div>
+                    <div id="mobilePaymentDetails">
+                        <label for="amount">Amount*</label>
+                        <input type="number" id="amount" name="amount" placeholder="" required>
+                    </div>
+                    <button type="submit" class="btn-submitWithdraw mx-0 mt-4">Buy Now</button>
+                </form>
+        </div>
+    </div>
+  </div>
+</div>
+<!-- end modal -->
+ <!-- modal for Datacard -->
+ <div class="modal fade" id="staticBackdropDataCard" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelDataCard" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabelDataCard">Data card</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- code goes here -->
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end modal -->
+
+ <!-- modal for Exam pin-->
+ <div class="modal fade" id="staticBackdropExam" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header modal-header-data text-white">
+        <h5 class="modal-title" id="staticBackdropLabelExam">Generate Exam pin</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+          <div class="form-container modal-body bg-white">
+            <form id="resultCheckerForm">
+               <label for="fullName">Full Name:</label>
+               <input type="text" id="fullName" name="fullName" placeholder="" required>
+
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" placeholder="" required>
+
+              <label for="paymentMethod">Payment Method:</label>
+              <select id="paymentMethod" name="paymentMethod" required>
+                <option value="" disabled selected>----------</option>
+                <option value="creditCard">Credit Card</option>
+                <option value="bankTransfer">Bank Transfer</option>
+                <option value="mobileMoney">Mobile Money</option>
+              </select>
+              <!-- Your pin shows here the one you generate from backend -->
+               <!-- so display it block once the pin generate -->
+               <div class="d-none">
+                  <label for="examPin">Exam PIN:</label>
+                  <input type="text" id="examPin" name="examPin" placeholder="" required>
+               </div>
+                <button type="submit" class="btn-submitWithdraw mx-0 mt-4">Generate Pin</button>
+            </form>
+          </div>
+    </div>
+  </div>
+</div>
+<!-- end modal -->
+
+ <!-- modal for Result checker-->
+ <div class="modal fade" id="staticBackdropResult" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header modal-header-data text-white">
+        <h5 class="modal-title" id="staticBackdropLabelResult">Result Checker</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="form-container modal-body bg-white">
+        <form id="resultCheckerForm">
+            <label for="examNumber">Exam Number:</label>
+            <input type="text" id="examNumber" name="examNumber" placeholder="" required>
+            <label for="examType">Exam Type:</label>
+            <select id="examType" name="examType" required>
+                <option value="" disabled selected>------------</option>
+                <option value="waec">WAEC</option>
+                <option value="neco">NECO</option>
+                <option value="jamb">JAMB</option>
+                <option value="other">Other</option>
+            </select>
+            <label for="examPin">Exam PIN:</label>
+            <input type="text" id="examPin" name="examPin" placeholder="" required>
+            <button type="submit" class="btn-submitWithdraw mx-0 mt-4">Check Result</button>
+        </form>
+    </div>
+    </div>
+  </div>
+</div>
+<!-- end modal -->
+
+ <!-- modal for Electricity-->
+ <div class="modal fade" id="staticBackdropElectricity" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header modal-header-data text-white">
+        <h5 class="modal-title" id="staticBackdropLabelExam">Electricity Bill Payment</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body bg-white">
+        <form action="" method="post"  id="electricityBillForm">
+           <label for="disconame">Disco name*</label>
+            <select id="disconame" name="disco" required>
+                <option value="" disabled selected>------------</option>
+                <option value="">Ikeja Electric</option>
+                <option value="">Eko Electric</option>
+                <option value="">Abuja Electric</option>
+                <option value="">Kano Electric</option>
+                <option value="">Enugu Electric</option>
+                <option value="">Port Harcourt Electric</option>
+                <option value="">Ibadan Electric</option>
+                <option value="">Kaduna Electric</option>
+                <option value="">Jos Electric</option>
+                <option value="">Benin Electric</option>
+            </select>
+            <div>
+               <label for="meter">Meter number*</label>
+               <input type="tel" id="meterNumber" name="meterNumber" placeholder="" required>
+            </div>
+            <label for="meterType">MeterType*</label>
+            <select id="meterType" name="meterType" required>
+                <option value="" disabled selected>------------</option>
+                <option value="waec"></option>
+                <option value="neco"></option>
+                <option value="jamb"></option>
+                <option value="other"></option>
+            </select>
+            <div>
+               <label for="billAmount">Amount*</label>
+               <input type="tel" id="billAmount" name="billAmount" placeholder="" required>
+            </div>
+            <div>
+               <label for="phone">Phone number*</label>
+               <input type="number" id="phone" name="phone" placeholder="" required>
+            </div>
+            <button type="submit" class="btn-submitWithdraw mx-0 mt-4">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end modal -->
+ 
+ <!-- modal for Cable Tv-->
+ <div class="modal fade" id="staticBackdropTv" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header modal-header-data text-white">
+        <h5 class="modal-title" id="staticBackdropLabelTv">Cable Tv Subscription</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+         <form id="cableTVForm">
+            <label for="package">Cablename*</label>
+            <select id="package" name="package" required>
+                <option value="" disabled selected>---------</option>
+                <option value="gotv">DSTV</option>
+                <option value="dstv">GOTV</option>
+                <option value="starttime">STARTIME</option>
+            </select>
+            <label for="examPin">Smart Card number / IUC number*</label>
+            <input type="tel" id="smartcard" name="smartcard" placeholder="" required>
+
+            <!-- The cablePlan will come from database -->
+             <label for="plan">Cableplan*</label>
+            <select id="plan" name="plan" required>
+                <option value="" disabled selected>---------</option>
+                <option value="cablePlan">-------</option>
+                <option value="cablePlan">---------</option>
+                <option value="cablePlan">----------</option>
+            </select>
+            <button type="submit" class="btn-submitWithdraw mx-0 mt-4">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end modal -->
+ 
+
+ <!-- modal for Gift cards-->
+ <div class="modal fade" id="staticBackdropGift" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header modal-header-data text-white">
+        <h5 class="modal-title" id="staticBackdropLabelGift">Gift cards</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+            <form id="giftCardForm">
+                <label for="fullName">Full Name*</label>
+                <input type="text" id="fullName" name="fullName" placeholder="" required>
+
+                <label for="email">Email Address*</label>
+                <input type="email" id="email" name="email" placeholder="" required>
+
+                <label for="cardType">Giftcard*</label>
+                <select id="cardType" name="cardType" required>
+                    <option value="" disabled selected>---------</option>
+                    <option value="purchase">Purchase a New Gift Card</option>
+                    <option value="redeem">Redeem an Existing Gift Card</option>
+                </select>
+
+                <div id="amountSection">
+                    <label for="amount">Currency Amount*</label>
+                    <select id="amount" name="amount">
+                        <option value="" disabled selected>---------</option>
+                        <option value="10">10 USD</option>
+                        <option value="25">25 USD</option>
+                        <option value="50">50 USD</option>
+                        <option value="100">100 USD</option>
+                        <option value="custom">Custom Amount</option>
+                    </select>
+                </div>
+                    <label for="number">Amount*</label>
+                    <input type="number" id="customAmount" name="customAmount" placeholder="">
+
+                <div id="redeemSection">
+                    <label for="giftCardCode">Gift Card Code*</label>
+                    <input type="text" id="giftCardCode" name="giftCardCode" placeholder="">
+                </div>
+
+                <button type="submit" class="btn-submitWithdraw mx-0 mt-4">Submit</button>
+            </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end modal -->
+ 
+
+    <!-- Navigation bar -->
+         <header class="sidenav-header">
+           <button class="openbtn" id="openBtn" >☰</button>
+            <div class="nav-logo-container">  
+                <a href="#">
+                    <img src="images/IbtechLogo__2.png" class="nav-logo" alt="logo">
+                    <span>IBtech</span>
+                </a>
+            </div>
+            <div class="navbar-icon">
+                 <div class="user-logout">
+                    <span class="fas fas fa-user"></span>
+                    <a class="hidden-logout" href="#">Logout</a>
+                </div>
+            </div>
+         </header>
+         <!-- Sidebar menu -->
+         <section id="side-navbar">
+            <nav class="side-menubar">
+                <ul class="side-menubarList">
+                    <li id="dashboard-list-cont" class="active">
+                        <i class="fas fa-house-chimney"></i>
+                        <a href="#" id="dashboard-list">Dashboard</a>
+                    </li> <br>
+                         <h5 class="transaction">Transactions</h5>
+                    <li>
+                        <i class="fas fas fa-credit-card"></i>
+                        <a href="./Billpayment/wallet.html">Fund wallet</a>
+                    </li>
+                     <div class="accordion accordion-flush" id="accordionFlushExample">
+                            <div class="accordion-item">
+                                <li class="accordion-button collapsed bg-white shadow-0 border-0 p-0" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                    <i class="fas fas far fa-lightbulb"></i>
+                                    <a href="">Utility Payments</a>
+                                </li>
+                                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                    <div class="accordion-body">
+                                        <li class="p-2 text-start">
+                                          <a href="./Billpayment/electricity.html" class="mx-4">&CircleDot; Bill payment</a>
+                                        </li>
+                                        <li class="p-2 text-start">
+                                          <a href="./Billpayment/cable.html" class="mx-4">&CircleDot; Cable subscription</a>
+                                        </li>
+                                    </div>
+                                </div>
+                            </div>
+                         </div>
+                    <li>
+                        <i class="fas fas fa-phone-square-alt"></i>
+                        <a href="./Billpayment/airtime.html">Buy Airtime</a>
+                    </li>
+                    <li>
+                        <i class="fas fas fa-signal"></i>
+                        <a href="./Billpayment/data.html">Buy Data</a>
+                    </li>
+                </ul>
+                <ul class="side-menubarList">
+                     <h5 class="transaction">Management</h5>
+                    <li>
+                        <i class="fas far fas fa-user"></i>
+                        <a href="/Billpayment/account.html">Account</a>
+                    </li>
+                    <li>
+                       <i class="fas fa-gear"></i>
+                       <a href="/Billpayment/edit-profile.html">Settings</a>
+                </ul>
+                <ul class="side-menubarList">
+                     <h5 class="transaction">Support</h5>
+                    <li>
+                       <i class="fas fas far fa-question-circle"></i>
+                       <a href="./Billpayment/faqs.html">F.A.Qs</a>
+                    </li>
+                </ul>
+                <ul class="side-menubarList">
+                    <h5 class="transaction">EXIT</h5>
+                    <li>
+                        <i class="fas fa-sign-out-alt"></i>
+                        <a href="#">Logout</a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- Dashboard  -->
+            <div class="mainbar-container">
+               <div class="bg-mainbar">
+                    <div class="d-flex user-flex align-items-center justify-content-between">
+                        <div class="users-page">
+                            <h5 id="greeting"></h5>
+                            <p class="balance" id="userBalance">₦122.000</p>
+                            <small>Earning Bal: ₦12.30</small>
+                            <span>Available Balance <i class="fas fa-eye-slash" id="hiddenIcon" onclick="togglePin()"></i></span>
+                        </div>
+                        <img src="images/user (1).png" class="img-fluid-container" alt="">
+                    </div>
+                    <div class="d-flex justify-content-center align-items-center  btn-withdraw">
+                        <button class=" round" id="btn-wallet2"  data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <i class="fas fas fa-money-check"></i>
+                             Fund Wallet
+                        </button>
+                        <button class="btn-withdraw2 round mx-3"  data-bs-toggle="modal"  data-bs-target="#staticBackdrop">
+                            <i class="fas fas fas fa-money-bill"></i>
+                            Withdraw
+                        </button>
+                    </div>
+                </div>
+                <section class="services-container shadow-lg">
+                    <div class="services">
+                        <ul>
+                            <li>
+                               <a href="#" data-bs-toggle="modal"data-bs-target="#staticBackdropAirtime">
+                                 <i class="fas fas fas fas fa-mobile-alt"></i>
+                                <p> Airtime</p>
+                               </a>
+                            </li>
+                            <li>
+                               <a href="#" data-bs-toggle="modal" data-bs-target="#staticBackdropData">
+                                 <i class="fas fas fas fas fa-signal"></i>
+                                <p>Buy Data</p>
+                               </a>
+                            </li>
+                            <li>
+                               <a href="#">
+                                 <i class="fas fas fas fas fa-edit" data-bs-toggle="modal"  data-bs-target="#staticBackdropExam"></i>
+                                <p> Exam Pin</p>
+                               </a>
+                            </li>
+                             <li>
+                               <a href="#">
+                                 <i class="fas fas fas far far fa-lightbulb" data-bs-toggle="modal"  data-bs-target="#staticBackdropElectricity"></i>
+                                <p> Electricity</p>
+                               </a>
+                            </li>
+                        </ul> 
+
+                        <ul>
+                            <li>
+                               <a href="#">
+                                 <i class="fas fas fas fas fas fa-tv" data-bs-toggle="modal"  data-bs-target="#staticBackdropTv"></i>
+                                <p> Cable TV</p>
+                               </a>
+                            </li>
+                            <li>
+                               <a href="#">
+                                 <i class="fas fas fas fas fa-graduation-cap" data-bs-toggle="modal"  data-bs-target="#staticBackdropResult"></i>
+                                <p>Result</p>
+                               </a>
+                            </li>
+                            <li>
+                               <a href="#">
+                                 <i class="fas fas fas fas fa-gift" data-bs-toggle="modal"  data-bs-target="#staticBackdropGift"></i>
+                                <p> GiftCards</p>
+                               </a>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+                <div class="my-3">
+                  <img src="./images/refer.png"  class="w-100 img-fluid-container" alt="" srcset="">
+                </div>
+                    <a href="https://wa.me/2347057920320" title="Contact Us" target="_blank"  class="contact-link">
+                       <i class="fab fab fa-whatsapp"></i>
+                    </a> 
+            </div>
+      </section>
+
+      <footer class="text-start py-4 copyright">
+        <p>Copyright 2024. <a href="index.html">IBtech Data,</a> Lagos State. All right reserved.</p>
+      </footer>
+
+
+
+<script src="script.js"></script>
+<script src="bootstrap/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+     
+
+

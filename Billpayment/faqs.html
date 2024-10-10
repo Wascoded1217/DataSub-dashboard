@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../icons/css/all.min.css">
+    <link rel="shortcut icon" href="../images/IbtechLogo__2.png" type="image/x-icon">
+    <link rel="stylesheet" href="../bootstrap/bootstrap.min.css">
+    <title>Dashboard</title>
+</head>
+<body>
+    <!-- Navigation bar -->
+         <header class="sidenav-header">
+            <div class="nav-logo-container">
+                <a href="../index.html">
+                    <img src="../images/IbtechLogo__2.png" class="nav-logo" alt="logo">
+                    <span>IBtech</span>
+                </a>
+            </div>
+            <div class="navbar-icon">
+                <span class="fas fa-bell "></span>
+                 <div class="user-logout">
+                    <span class="fas fas fa-user"></span>
+                    <a class="hidden-logout" href="#">Logout</a>
+                </div>
+            </div>
+         </header>
+         <!-- Sidebar menu -->
+         <section id="side-navbar">
+                  <nav class="side-menubar">
+                <ul class="side-menubarList">
+                    <li id="dashboard-list-cont" class="active">
+                        <i class="fas fa-house-chimney"></i>
+                        <a href="../index.html" id="dashboard-list">Dashboard</a>
+                    </li> <br>
+                         <h5 class="transaction">Transactions</h5>
+                    <li class="">
+                        <i class="fas fas fa-credit-card"></i>
+                        <a href="../Billpayment/wallet.html" class="">Fund wallet</a>
+                    </li>
+                     <div class="accordion accordion-flush" id="accordionFlushExample">
+                            <div class="accordion-item">
+                                <li class="accordion-button collapsed bg-white shadow-0 border-0 p-0" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                    <i class="fas fas far fa-lightbulb"></i>
+                                    <a href="#">Utility Payments</a>
+                                </li>
+                                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                    <div class="accordion-body">
+                                        <li class="p-2 text-start">
+                                          <a href="../Billpayment/electricity.html" class="mx-4">&CircleDot; Bill payment</a>
+                                        </li>
+                                        <li class="p-2 text-start">
+                                          <a href="../Billpayment/cable.html" class="mx-4">&CircleDot; Cable subscription</a>
+                                        </li>
+                                    </div>
+                                </div>
+                            </div>
+                         </div>
+                    <li>
+                        <i class="fas fas fa-phone-square-alt"></i>
+                        <a href="../Billpayment/airtime.html" class="">Buy Airtime</a>
+                    </li>
+                    <li>
+                        <i class="fas fas fa-signal"></i>
+                        <a href="../Billpayment/data.html">Buy Data</a>
+                    </li>
+                </ul>
+                <ul class="side-menubarList">
+                     <h5 class="transaction">Management</h5>
+                    <li>
+                        <i class="fas far fas fa-user"></i>
+                        <a href="../Billpayment/account.html">Account</a>
+                    </li>
+                    <li>
+                       <i class="fas fa-gear"></i>
+                       <a href="../Billpayment/edit-profile.html">Settings</a>
+                    </li>
+                </ul>
+                <ul class="side-menubarList">
+                     <h5 class="transaction">Support</h5>
+
+                    <li class="airtime-active">
+                       <i class="fas fas far fa-question-circle"></i>
+                       <a href="../Billpayment/faqs.html" class="active">F.A.Qs</a>
+                    </li>
+                </ul>
+                <ul class="side-menubarList">
+                    <h5 class="transaction">EXIT</h5>
+                    <li>
+                        <i class="fas fa-sign-out-alt"></i>
+                        <a href="#">Logout</a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- Dashboard  -->
+
+     <div class="mainbar-container">
+        <div class="accordion bg-white p-0 shadow-sm" id="accordionPanelsStayOpenExample">
+             <div class="text-center py-3 mx-2 faqs-header">
+                <h2>FAQs.</h2>
+                <p>Click on each question to see answers, click again to hide it.</p>
+            </div>
+            <div class="accordion-item p-2 px-0">
+                <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                <button class="accordion-button collapsed accordion-buttonFaqs" id="clickBtn" onclick="btnAccordion()" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                   How can i purchase data from you?
+                </button>
+                </h2>
+                <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingOne">
+                <div class="accordion-body py-5 px-4 ">
+                    <div class="step1Faqs">
+                        <h6>STEP 1: <span>Fund your wallet.</span></h6>
+                        <h6>STEP 2: <span>Fill the data order form.</span></h6>
+                        <h6>STEP 3: <span>Wait for 5-15 minutes, the recipient will receive notification of data recharge (Except for 9mobile(SME), which should be confirmed with its balance code)</span></h6>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="accordion-item p-2 px-0">
+                <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                <button class="accordion-button collapsed accordion-buttonFaqs"  id="clickBtn1" onclick="btnAccordion1()" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                    How can i check my data balance?
+                </button>
+                </h2>
+                <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+                 <div class="accordion-body py-5 px-4 ">
+                    <div class="step1Faqs">
+                        <h6>MTN = <span>*461*4#</span></h6>
+                        <h6>9mobile[SME] = <span>*229*9#</span></h6>
+                        <h6>9mobile[Gifting] = <span>*228#</span></h6>
+                        <h6>Airtel  = <span> *140#</span></h6>
+                        <h6>Glo = <span>*127*0#</span></h6>
+                    </div>
+                </div>
+                </div>
+            </div>    
+            <div class="accordion-item p-2 px-0">
+                <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+                <button class="accordion-button collapsed accordion-buttonFaqs"  id="clickBtn2" onclick="btnAccordion2()" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+                    How can i fund my wallets?
+                </button>
+                </h2>
+                <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
+               <div class="accordion-body py-5 px-4">
+                    <div class="step1Faqs">
+                        <p>You can fund your wallet using any of this payment means:</p>
+                        <ol>
+                            <li>Bank payment</li>
+                            <li>Online Payment with your ATM card details via Pay stack Payment Gateway</li>
+                        </ol>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="accordion-item p-2 px-0">
+                <h2 class="accordion-header" id="panelsStayOpen-headingFour">
+                <button class="accordion-button collapsed accordion-buttonFaqs" id="clickBtn3" onclick="btnAccordion3()" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false" aria-controls="panelsStayOpen-collapseFour">
+                    Can i share the data i buy from you with another line?
+                </button>
+                </h2>
+              <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFour">
+                <div class="accordion-body py-5 px-4">
+                    <div class="step1Faqs">
+                        <p>You can only share glo data plans, mtn, 9MOBILE and airtel data can be shared.</p>
+                    </div>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item p-2 px-0">
+                <h2 class="accordion-header" id="panelsStayOpen-headingFive">
+                <button class="accordion-button collapsed accordion-buttonFaqs" id="clickBtn4" onclick="btnAccordion4()" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false" aria-controls="panelsStayOpen-collapseFive">
+                    How can i be your agent?
+                </button>
+                </h2>
+                <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFive">
+                <div class="accordion-body py-5 px-4">
+                    <div class="step1Faqs">
+                        <p>Your products can be retailed, as they are affordable. You can retail our Products to others and make profit. <br>Just make sure your wallet is funded, then you can easily purchase for anyone you wish.</p>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="accordion-item p-2 px-0">
+                <h2 class="accordion-header" id="panelsStayOpen-headingSix">
+                <button class="accordion-button collapsed accordion-buttonFaqs" id="clickBtn5" onclick="btnAccordion5()" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseSix" aria-expanded="false" aria-controls="panelsStayOpen-collapseSix">
+                    Can i send airtime to you for data bundle?
+                </button>
+                </h2>
+                <div id="panelsStayOpen-collapseSix" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingSix">
+                 <div class="accordion-body py-5 px-4">
+                    <div class="step1Faqs">
+                        <p>Yes you can, but payment with airtime attracts little additional charge. Kindly fund your wallet with airtime.</p>
+                    </div>
+                 </div>
+                </div>
+            </div>
+            <div class="accordion-item p-2 px-0">
+                <h2 class="accordion-header" id="panelsStayOpen-headingSeven">
+                <button class="accordion-button collapsed accordion-buttonFaqs" id="clickBtn6" onclick="btnAccordion6()" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseSeven" aria-expanded="false" aria-controls="panelsStayOpen-collapseSeven">
+                   Hope the data won't get exhausted quickly or disappear?
+                </button>
+                </h2>
+                <div id="panelsStayOpen-collapseSeven" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingSeven">
+                 <div class="accordion-body py-5 px-4">
+                    <div class="step1Faqs">
+                        <p>Our data plans are sourced from the network providers, therefore consumption rate is similar to the data gotten directly from them</p>
+                    </div>
+                 </div>
+                </div>
+            </div>
+            <div class="accordion-item p-2 px-0">
+                <h2 class="accordion-header" id="panelsStayOpen-headingEight">
+                <button class="accordion-button collapsed accordion-buttonFaqs" id="clickBtn7" onclick="btnAccordion7()" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseEight" aria-expanded="false" aria-controls="panelsStayOpen-collapseEight">
+                  What are the other products/service you offer?
+                </button>
+                </h2>
+                <div id="panelsStayOpen-collapseEight" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingEight">
+                <div class="accordion-body py-5 px-4">
+                    <div class="step1Faqs">
+                        <p>We sell Cheap Internet Data Plans, Airtime VTU on MTN, 9MOBILE, GLO and AIRTEL Bills Payment, subscriptions of (GOTV, DSTV, STARTIMES).</p>
+                    </div>
+                 </div>
+                </div>
+            </div>
+            <div class="accordion-item p-2 px-0">
+                <h2 class="accordion-header" id="panelsStayOpen-headingNine">
+                 <button class="accordion-button collapsed accordion-buttonFaqs" id="clickBtn8" onclick="btnAccordion8()" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseNine" aria-expanded="false" aria-controls="panelsStayOpen-collapseNine">
+                    What if my order was cancelled but my wallet was not refunded?
+                </button>
+                </h2>
+                <div id="panelsStayOpen-collapseNine" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingNine">
+                 <div class="accordion-body py-5 px-4">
+                    <div class="step1Faqs">
+                        <p>You can contact our customer care agent through Whatsapp, by clicking on the whatsapp button on the bottom right of the website</p>
+                    </div>
+                 </div>
+                </div>
+            </div>
+            <div class="accordion-item py-2 px-0">
+                <h2 class="accordion-header" id="panelsStayOpen-headingTen">
+                <button class="accordion-button collapsed accordion-buttonFaqs" id="clickBtn9" onclick="btnAccordion9()" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTen" aria-expanded="false" aria-controls="panelsStayOpen-collapseTen">
+                  Is this data plan compatible with all devices?
+                </button>
+                </h2>
+                <div id="panelsStayOpen-collapseTen" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTen">
+                    <div class="accordion-body py-5 px-4">
+                    <div class="step1Faqs">
+                        <p>Yes, it is compatible with all devices.</p>
+                    </div>
+                 </div>
+                </div>
+            </div>
+       </div>
+   </div>
+                <a href="https://wa.me/2347057920320" title="Contact Us" target="_blank"  class="contact-link">
+                  <i class="fab fab fa-whatsapp"></i>
+                </a>      
+</section>
+      <footer class="text-start py-4 copyright">
+        <p>Copyright 2024. <a href="index.html">IBtech Data,</a> Lagos State. All right reserved.</p>
+      </footer>
+<script src="../script.js"></script>
+<script src="../bootstrap/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+     
+
+

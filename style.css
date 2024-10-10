@@ -1,0 +1,1222 @@
+/* font-family */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,500;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+/*  */
+
+/* scrolling bar */
+html {
+    scrollbar-width: thin; 
+    scrollbar-color: #888;/
+}
+::-webkit-scrollbar {
+    width: 13px; 
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 255, 0.77); 
+    border-radius: 4px; 
+    border:3px solid #f1f1f1; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 255, 0.77); 
+}
+/* scrolling bar ending */
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+#openBtn{
+    display: none;
+    padding: 1px 9px;
+    background-color: rgb(6, 6, 31);
+    color: white;
+    font-size: 19px;
+}
+
+body{
+    background-color: whitesmoke;
+}
+
+.sidenav-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    position: sticky;
+    top:0;
+    padding: 10px;
+    height: 60px;
+    z-index:1000;
+    box-shadow: 0 0 15px gainsboro;
+}
+
+.navbar-icon{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+/* .navbar-icon span{
+    cursor: pointer;
+    margin: 0 15px;
+} */
+.navbar-icon .fa-bell{
+    color: rgba(10, 10, 10, 0.842);
+    font-size: 20px;
+    cursor: pointer;
+    margin: 0 20px;
+}
+.navbar-icon .fa-user{
+    color:blue;
+    border-radius: 50%;
+    border:2px solid blue;
+    padding:3px 3px;
+    text-align: center;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 25px;
+    overflow: hidden;
+    height: 30px;
+    margin:0 22px;
+}
+
+
+
+.nav-logo-container a{
+    display: flex;
+    justify-content: center;
+    font-family: ubuntu;
+    letter-spacing:2px;
+    color: navy;
+    font-weight: 900;
+    text-decoration: none;
+    font-size: 23px;
+    align-items: center;
+}
+
+.nav-logo-container a:hover{
+    color: navy;
+}
+
+.user-logout{
+    position: relative;
+    transition: all .1s;
+}
+
+.user-logout .hidden-logout{
+    visibility:hidden;
+    display: block;
+    position: absolute;
+    font-family: 'Poppins';
+    font-weight: 700;
+    color: blue;
+    text-decoration: none;
+    border-radius: 5px;
+    background-color: white;
+    border: 1px solid gainsboro;
+    right: 20px;
+    box-shadow: 0 0 10px gainsboro;
+    padding: 10px 22px;
+}
+
+.user-logout:hover .hidden-logout{
+    visibility: visible;
+     opacity: 1;
+    box-shadow: 0 10px 10px 7px rgba(0, 0, 0, 0.2);
+}
+
+.nav-logo-container .nav-logo{
+    width: 70px;
+    height: auto;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.side-menubar .side-menubarList{
+    display: flex;
+    padding: 5px;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.side-menubar{
+    width: 22%;
+    background-color: white;
+    height:100vh;
+    overflow-y: auto;
+    position: sticky;
+    top: 0;
+    padding:  1rem;
+}
+
+#dashboard-list-cont{
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    background-color:rgba(192, 192, 239, 0.206);
+}
+#dashboard-list-cont .fa-buromobelexperte{
+    font-size:17px;
+    color: rgba(33, 33, 241, 0.99)
+}
+
+#dashboard-list{
+    font-size: 14px;
+    padding:10px 0;
+    color: rgba(33, 33, 241, 0.99)
+}
+
+
+#dashboard-list:hover{
+     color: rgba(33, 33, 241, 0.99)
+}
+
+.airtime-active {
+        background-color:rgba(192, 192, 239, 0.206);
+        border-radius: 4px;
+}
+.airtime-active .active{
+    color: blue;
+}
+
+.airtime-active .fa-phone-square-alt{
+    color: blue;
+}
+.airtime-active .fa-credit-card{
+    color: blue;
+}
+
+.side-menubarList li{
+    font-family: "Outfit", sans-serif;
+    cursor: pointer;
+    list-style-type: none;
+    transition: all 0.1s ease-in-out;
+    margin: 4px 0;
+    font-size: 13px;
+}
+
+.side-menubarList li:hover a{
+       color: rgba(33, 33, 241, 0.99)
+}
+
+
+.side-menubarList li:hover{
+      background-color:rgba(192, 192, 239, 0.206);
+      border-radius: 7px;
+}
+
+.side-menubarList li i{
+    color:rgb(83, 81, 81);
+    font-size: 17px;
+    padding: 12px 0;
+    margin: 0 10px;
+}
+
+.side-menubarList li a{
+    color:navy;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.side-menubarList li:hover i{
+    color: rgba(33, 33, 241, 0.99)
+}
+
+.side-menubarList .transaction{
+    font-family:ubuntu;
+    text-transform: uppercase;
+    padding:10px;
+    opacity: 0.7;
+    font-weight: 500;
+    color: rgb(101, 96, 96);
+    font-size: 12px;
+
+}
+
+#side-navbar{
+    display: flex;
+    align-items: start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 0;
+    
+}
+
+.mainbar-container{
+    width: 78%;
+    min-height: 100%;
+    background-color: whitesmoke;
+    padding: 1rem;
+}
+
+.bg-mainbar{
+    background-image:linear-gradient(to bottom right,rgba(255, 0, 0, 0.821), rgba(0, 0, 255, 0.729)), url(images/bg-img.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position:right;
+    height: 280px;
+    color: white;
+    padding: 1.5rem;
+    width: 100%;
+    border-radius: 7px;
+}
+
+.users-page h5{
+    color: white;
+    font-size: 30px;
+    font-weight: 200;
+    font-family: ubuntu;
+
+}
+.users-page p{
+    color: white;
+    font-size: 25px;
+    font-weight: 350;
+    display: block;
+    margin: 8px 0;
+    font-family:'Poppins', sans-serif;
+    letter-spacing:1.9px;
+}
+.users-page small{
+    color: white;
+    font-weight: 200;
+    font-size: 15px;
+}
+
+.users-page .fa-eye-slash{
+    color: white;
+    cursor: pointer;
+}
+.users-page span{
+    display: inline-block;
+    margin: 0 12px;
+    font-weight: 200;
+}
+
+.user-flex img{
+    width: 80px;
+    cursor: pointer;
+    overflow: hidden;
+    padding: 12px;
+    border-radius: 50%;
+}
+
+.btn-withdraw{
+    margin: 35px 0;
+}
+
+
+.btn-withdraw button{
+    padding: 7px 25px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    font-family: "Outfit",ubuntu;
+    border: 1px solid white;
+    color: white;
+    transition: all .3s;
+    font-size: 14px;
+    background-color: transparent;
+}
+
+
+#btn-wallet2{
+    background-color: white;
+    color: blue;
+    border: none;
+}
+
+.btn-withdraw2:hover{
+  background:linear-gradient(to bottom right,rgba(255, 0, 0, 0.65), blue);
+  color: white;
+  letter-spacing: .2px;
+}
+
+.btn-withdraw i{
+    font-size: 22px;
+    cursor: pointer;
+    margin: 5px 7px;
+}
+
+.contact-link:hover{
+    background-color: green;
+    transform: scale(1);
+    color: white;
+}
+
+.contact-link{
+    border-radius: 50%;
+    background-color: white;
+    padding: 2px 14px;
+    transform: scale(-1);
+    text-align: center;
+    transition:all .2s 1s;
+    font-size:35px;
+    color: green;
+    position: fixed;
+    bottom: 30px;
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.2);
+    right: 35px;
+}
+
+.services-container{
+    padding: 30px; 
+    margin-top: 20px;
+    border-radius: 7px;
+    background-color: white;
+}
+
+.services ul{
+    list-style-type: none;
+    display: flex;
+    gap: 15rem;
+    align-items: center;
+    padding: 0;
+    text-align: center;
+    flex-wrap: wrap;
+    margin-top: 15px;
+    margin-bottom: 25px;
+}
+
+.services ul li a{
+    text-decoration: none;
+    color: rgb(82, 81, 81);
+    text-align: center;
+}
+
+
+.services p{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight:500;
+    color:gray;
+}
+
+.services a i{
+    margin-bottom:15px;
+    border: 2px solid rgba(220, 220, 220, 0.075);
+    background-color: rgba(0, 0, 255, 0.037);
+    padding:20px 10px;
+    border-radius:50%;
+    min-width: 70px;
+    font-size:22px;
+    color: rgba(0, 0, 255, 0.706);
+    text-align: center;
+    transition: .2s ease .1s;
+}
+
+.services a i:hover{
+    background-color: blue;
+    box-shadow:0 0 17px 15px rgba(220, 220, 220, 0.31);
+    /* border: 2px solid blue; */
+    color: white;
+}
+
+.services li:hover p{
+    color: blue;
+}
+
+.modal-title-data{
+    font-weight: 350;
+    font-size: 27px;
+}
+.modal-title{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.modalFooter{
+    padding: 15px 0;
+}
+.modal-header-data{
+    background-color: blue;
+}
+.btn-dataSubmit{
+    border: none;
+    border-radius: 3px;
+    background-color: blue;
+    color: white;
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 14px;
+    
+}
+.copyright p{
+    margin: 0 10px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.copyright a{
+    text-decoration: none;
+    color: navy;
+}
+
+#fundWalletForm label{
+    font-family: Ubuntu;
+     color: rgb(0, 0, 0);
+    font-size: 14px;
+}
+
+#paymentMethod {
+    width: 100%;
+    border: 1px solid rgba(128, 128, 128, 0.185);
+    padding: 10px;
+    border-radius: 5px;
+    margin: 15px 0;
+}
+
+#fundWalletForm input:focus{
+    outline: none;
+}
+
+#fundWalletForm input{
+    width: 100%;
+    border: 1px solid rgba(128, 128, 128, 0.185);
+    padding: 10px;
+    border-radius: 5px;
+    margin: 15px 0;
+}
+
+.btn-addFunds{
+    width: 100%;
+    background-color: navy;
+    color: white;
+    padding: 10px;
+    opacity: 0.9;
+    transition: .2s ease-in-out;
+    border-radius: 5px;
+    border: none;
+}
+.btn-addFunds:hover{
+    background-color: blue;
+    opacity: 1;
+}
+
+
+#withdrawForm label{
+    font-family: Ubuntu;
+    font-size: 14px;
+     color: rgb(0, 0, 0);
+}
+
+#withdrawForm input:focus{
+    outline: none;
+}
+
+#withdrawMethod {
+    width: 100%;
+    border: 1px solid rgba(128, 128, 128, 0.185);
+    padding: 10px;
+    border-radius: 5px;
+    margin: 15px 0;
+}
+#withdrawMethod:focus{
+    outline: none;
+}
+
+#withdrawForm input{
+    width: 100%;
+    border: 1px solid rgba(128, 128, 128, 0.185);
+    padding: 10px;
+    border-radius: 5px;
+    margin: 15px 0;
+}
+
+
+.btn-submitWithdraw{
+    width: 100%;
+    background-color: navy;
+    color: white;
+    padding: 10px;
+    opacity: 0.9;
+    transition: .2s ease-in-out;
+    border-radius: 3px;
+    border: none;
+}
+.btn-submitWithdraw:hover{
+    background-color: blue;
+    opacity: 1;
+}
+
+#airtimeForm label{
+    font-family: Ubuntu;
+    font-size: 14px;
+    display: block;
+     color: rgb(0, 0, 0);
+    margin: 15px 0;
+}
+
+#airtimeForm select{
+    font-family: Arial, Helvetica, sans-serif;
+    border: 1.5px solid gainsboro;
+    padding: 9px;
+    font-size: 12px;
+    width: 100%;
+    border-radius: 5px;
+}
+
+
+#airtimeForm select:focus{
+     outline: none;
+     border: 1px solid dodgerblue;
+}
+
+#airtimeForm input{
+    font-family: Arial, Helvetica, sans-serif;
+    border: 1.5px solid gainsboro;
+    padding:7px;
+    font-size: 14px;
+    width: 100%;
+    border-radius:5px;
+}
+
+#airtimeForm h5{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    color: navy;
+}
+
+#airtimeForm input:focus{
+    outline: none;
+    border: 1px solid dodgerblue;
+}
+
+#resultCheckerForm label{
+    font-family: Ubuntu;
+    font-size: 14px;
+    display: block;
+     color: rgb(0, 0, 0);
+    margin: 15px 0;
+}
+
+#resultCheckerForm select{
+    font-family: Arial, Helvetica, sans-serif;
+    border: 1.5px solid gainsboro;
+    padding: 9px;
+    font-size: 12px;
+    width: 100%;
+    border-radius: 5px;
+}
+
+#resultCheckerForm select:focus{
+     outline: none;
+     border: 1px solid dodgerblue;
+}
+
+#resultCheckerForm input{
+    font-family: Arial, Helvetica, sans-serif;
+    border: 1.5px solid gainsboro;
+    padding:7px;
+    font-size: 14px;
+    width: 100%;
+    border-radius:5px;
+}
+
+#resultCheckerForm h5{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    color: navy;
+}
+
+#resultCheckerForm input:focus{
+    outline: none;
+    border: 1px solid dodgerblue;
+}
+
+#giftCardForm label{
+    font-family: Ubuntu;
+    font-size: 14px;
+    display: block;
+     color: rgb(0, 0, 0);
+    margin: 15px 0;
+}
+
+#giftCardForm select{
+    font-family: Arial, Helvetica, sans-serif;
+    border: 1.5px solid gainsboro;
+    padding: 9px;
+    font-size: 12px;
+    width: 100%;
+    border-radius: 5px;
+}
+
+#giftCardForm select:focus{
+     outline: none;
+     border: 1px solid dodgerblue;
+}
+
+#giftCardForm input{
+    font-family: Arial, Helvetica, sans-serif;
+    border: 1.5px solid gainsboro;
+    padding:7px;
+    font-size: 14px;
+    width: 100%;
+    border-radius:5px;
+}
+
+#giftCardForm h5{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    color: navy;
+}
+
+#giftCardForm input:focus{
+    outline: none;
+    border: 1px solid dodgerblue;
+}
+#cableTVForm{
+    width: 100%;
+}
+.infoCable{
+    width: 50%;
+    margin-top:5rem;
+}
+.infoCable h3{
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgba(3, 3, 51, 0.854);
+    line-height: 30px;
+}
+
+#cableTVForm label{
+    font-family: Ubuntu;
+    font-size: 14px;
+    display: block;
+    color: rgb(0, 0, 0);
+    margin: 15px 0;
+}
+
+#cableTVForm select{
+    font-family: Arial, Helvetica, sans-serif;
+    border: 1.5px solid gainsboro;
+    padding: 9px;
+    font-size: 12px;
+    width: 100%;
+    border-radius: 5px;
+}
+
+#cableTVForm select:focus{
+     outline: none;
+     border: 1px solid dodgerblue;
+}
+
+#cableTVForm input{
+    font-family: Arial, Helvetica, sans-serif;
+    border: 1.5px solid gainsboro;
+    padding:7px;
+    font-size: 14px;
+    width: 100%;
+    border-radius:5px;
+}
+
+#cableTVForm h5{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    color: navy;
+}
+
+#cableTVForm input:focus{
+    outline: none;
+    border: 1px solid dodgerblue;
+}
+.cableSub{
+    display: flex;
+    align-items: start;
+    gap: 22px;
+    padding:auto;
+    position: relative;
+    top: 20px;
+    justify-content: space-between;
+}
+
+#electricityBillForm label{
+    font-family: Ubuntu;
+    font-size: 14px;
+    display: block;
+    color: rgb(0, 0, 0);
+    margin: 15px 0;
+}
+
+#electricityBillForm select{
+    font-family: Arial, Helvetica, sans-serif;
+    border: 1.5px solid gainsboro;
+    padding: 9px;
+    font-size: 12px;
+    width: 100%;
+    border-radius: 5px;
+}
+
+#electricityBillForm select:focus{
+     outline: none;
+     border: 1px solid dodgerblue;
+}
+
+#electricityBillForm input{
+    font-family: Arial, Helvetica, sans-serif;
+    border: 1.5px solid gainsboro;
+    padding:7px;
+    font-size: 14px;
+    width: 100%;
+    border-radius:5px;
+}
+
+#electricityBillForm h5{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    color: navy;
+}
+
+#electricityBillForm input:focus{
+    outline: none;
+    border: 1px solid dodgerblue;
+}
+
+.wallet-container1 img{
+    width:100px;
+    height:50px;
+    object-fit: cover;
+    margin: 20px 0;
+}
+.wallet-container1{
+        background-color: navy;
+        border-radius: 5px;
+        box-shadow: 0 0 10px gainsboro;
+        color: white;
+}
+.wallet-container2{
+    background-color: whitesmoke;
+    border-radius: 5px;
+    box-shadow: 0 0 10px gainsboro;
+}
+.wallet-container1 h4{
+    font-weight:450;
+}
+
+.wallet-container2 img{
+    width:100px;
+    height:50px;
+    object-fit: cover;
+    margin: 20px 0;
+}
+.wallet-container2 h4{
+    font-weight:450;
+}
+.accountName h5{
+    font-weight: 400;
+}
+.accountName h6{
+    font-weight: 400;
+}
+
+.bankInfo h6{
+    font-size: 10px;
+    padding: 0;
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    color: gray; 
+}
+
+.bankInfo small{
+    font-size: 10px;
+    font-style: italic;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding: 0;
+}
+.faqs-header h2{
+    color: dodgerblue;
+    font-weight: 400;
+}
+.faqs-header p{
+    font-style: oblique;
+    font-size: 16px;
+    color:navy;
+}
+.accordion-buttonFaqs{
+    font-style:normal;
+    border: 0;
+    background-color:transparent;
+    box-shadow: 0;
+    outline: none;
+    font-size: 14px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: rgba(33, 33, 151, 0.819);
+}
+.step1Faqs h6{
+    font-weight:100;
+    color: rgba(18, 18, 81, 0.89);
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.step1Faqs span{
+    font-weight:200;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 13px;
+}
+.step1Faqs li{
+       color: rgba(18, 18, 81, 0.89);
+       margin-bottom: 12px;
+       list-style-type: disc;
+       font-size: 14px;
+}
+.step1Faqs p{
+       color: rgba(18, 18, 81, 0.89);
+       font-size: 14px;
+      
+}
+.userAccount{
+    display: flex;
+    margin-top: 20px;
+    max-width: 800px;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.userAccount p{
+    font-size: 15px;
+    color: rgb(2, 2, 16);
+    font-weight: 300;
+    font-family:Arial, Helvetica, sans-serif;
+}
+.userAccount h5{
+    color: rgb(5, 5, 75);
+    font-weight: 400;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 17px;
+}
+.btn-editProfile a{
+    color: white;
+    text-decoration: none;
+}
+.btn-editProfile a:hover{
+    color: white;
+    text-decoration: none;
+}
+
+/* Media screen at 768px */
+
+@media screen and (max-width:1200px) {
+    
+.services-container{
+    padding: 5px 0;
+    box-shadow: 0 5px 10px 5px rgba(0, 0, 0, 0.2);   
+    margin-top:20px;
+    border-radius: 7px;
+    border: none;
+    background-color: white;
+}
+
+.services ul{
+    list-style-type: none;
+    display: flex;
+    justify-content:flex-start;
+    gap:0px;
+    padding: 10px;
+    align-items:center;
+    text-align: center;
+    flex-wrap:wrap;
+    margin: auto;
+}
+
+.services ul li{
+    width:25%;
+}
+
+.services a i{
+    margin-bottom:15px;
+    border: none;
+    background-color: rgba(0, 0, 255, 0.037);
+    padding:3rem;
+    border-radius:3px;
+    font-size:27px;
+    color: rgba(0, 0, 255, 0.706);
+    text-align: center;
+    transition: .2s ease .1s;
+}  
+}
+
+@media screen and (max-width:800px) {
+#side-navbar{
+    display: flex;
+    align-items: start;
+    flex-direction:column;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 0;
+}
+
+#openBtn{
+    display:block;
+}
+
+.mainbar-container{
+    width: 100%;
+    /* height: 100vh; */
+    background-color: whitesmoke;
+    padding: 7px;
+}
+
+.side-menubar{
+    width: 88%;
+    background-color: white;
+    height: auto;
+    overflow:hidden;
+    position: sticky;
+    top: auto;
+    display: none;
+    padding:  0;
+    margin: 15px auto;
+}
+
+
+.bg-mainbar{
+    background-image:linear-gradient(to bottom right,rgba(255, 0, 0, 0.65), blue), url(images/bg-img.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    height: 230px;
+    color: white;
+    padding: 1.5rem;
+    max-width: 1000px;
+    border-radius: 7px;
+}
+
+ .side-menubarList{
+    display: flex;
+    padding: 0;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+.navbar-icon .fa-bell{
+    color: rgba(14, 13, 13, 0.849);
+    font-size: 25px;
+    display: block;
+}
+
+
+.contact-link{
+    border-radius: 50%;
+    background-color: green;
+    padding: 2px 14px;
+    transform: scale(1);
+    text-align: center;
+    transition:all .2s 1s;
+    font-size:35px;
+    color: white;
+    position: fixed;
+    bottom: 30px;
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.2);
+    right: 1px;
+}
+
+
+.users-page h5{
+    color: white;
+    font-size: 18px;
+    font-weight: 200;
+    font-family: ubuntu;
+
+}
+.users-page p{
+    color: white;
+    font-size: 15px;
+    font-weight: 350;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+}
+.users-page small{
+    color: white;
+    font-size: 12px;
+}
+
+.users-page span{
+    display: block;
+    margin: 0;
+    font-weight: 200;
+    font-size: 12px;
+}
+
+.user-flex img{
+    width: 70px;
+    cursor: pointer;
+    overflow: hidden;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+
+.btn-withdraw button{
+    padding:12px 20px;
+    /* width: 100%; */
+    font-size: 13px;
+    text-align: center;
+    font-family: "Outfit",ubuntu;
+    border: 1px solid white;
+    color: white;
+    transition: all .3s .1s;
+    background-color: transparent;
+}
+
+
+#btn-wallet2{
+    background-color: white;
+    color: blue;
+    /* text-align: center; */
+    border: none;
+}
+
+.btn-withdraw2:hover{
+    background:linear-gradient(to bottom right,rgba(255, 0, 0, 0.65), blue);    
+    color: white;
+    letter-spacing: .2px;
+}
+
+.btn-withdraw i{
+    font-size: 14px;
+    text-align: center;
+    margin:3px;
+}
+
+.services-container{
+    padding: 5px 0;
+    box-shadow: 0 5px 10px 5px rgba(0, 0, 0, 0.2);   
+    margin-top:20px;
+    border-radius: 7px;
+    border: none;
+    background-color: white;
+}
+
+.services ul{
+    list-style-type: none;
+    display: flex;
+    justify-content:flex-start;
+    justify-content: start;
+    gap:0px;
+    padding: 10px;
+    align-items:center;
+    text-align: center;
+    flex-wrap:wrap;
+    margin: auto;
+}
+
+.services ul li{
+    width:48%;
+
+
+}
+
+.services a i{
+    margin-bottom:15px;
+    border:none;
+    background-color: rgba(0, 0, 255, 0.037);
+    padding:3rem;
+    border-radius:3px;
+    font-size:27px;
+    color: rgba(0, 0, 255, 0.706);
+    text-align: center;
+    transition: .2s ease .1s;
+}
+
+.copyright p{
+    margin: 0 10px;
+    font-size: 12px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.copyright a{
+    text-decoration: none;
+    color: navy;
+}
+
+.step1Faqs h6{
+    font-weight:100;
+    color: rgba(18, 18, 81, 0.89);
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.step1Faqs span{
+    font-weight:200;
+    color: navy;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 12px;
+}
+
+.faqs-header h2{
+    color: dodgerblue;
+    font-weight: 400;
+}
+.faqs-header p{
+    font-style: oblique;
+    font-size: 12px;
+    color:navy;
+}
+#cableTVForm{
+    background-color: white;
+    padding: 18px;
+}
+.cableSub{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+}
+.infoCable{
+    width: 100%;
+    padding: 18px;
+    margin-top:0rem;
+}
+.infoCable h3{
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgba(3, 3, 51, 0.854);
+    line-height:33px;
+}
+
+
+}
+
+@media screen and (max-width:300px) {
+    
+.services-container{
+    padding: 5px 0;
+    box-shadow: 0 5px 10px 5px rgba(0, 0, 0, 0.2);   
+    margin-top:20px;
+    border-radius: 7px;
+    border: none;
+    background-color: white;
+}
+
+.services ul{
+    list-style-type: none;
+    display: flex;
+    justify-content:flex-start;
+    gap:0px;
+    padding: 10px;
+    align-items:center;
+    text-align: center;
+    flex-wrap:wrap;
+    margin: auto;
+}
+
+.services ul li{
+    width:100%;
+}
+
+.services a i{
+    margin-bottom:15px;
+    border: none;
+    background-color: rgba(0, 0, 255, 0.037);
+    padding:3rem;
+    border-radius:3px;
+    font-size:27px;
+    color: rgba(0, 0, 255, 0.706);
+    text-align: center;
+    transition: .2s ease .1s;
+}  
+}

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../icons/css/all.min.css">
+    <link rel="shortcut icon" href="../images/IbtechLogo__2.png" type="image/x-icon">
+    <link rel="stylesheet" href="../bootstrap/bootstrap.min.css">
+    <title>Dashboard</title>
+</head>
+<body>
+    <!-- Navigation bar -->
+         <header class="sidenav-header">
+            <div class="nav-logo-container">
+                <a href="../index.html">
+                    <img src="../images/IbtechLogo__2.png" class="nav-logo" alt="logo">
+                    <span>IBtech</span>
+                </a>
+            </div>
+            <div class="navbar-icon">
+                <span class="fas fa-bell "></span>
+                 <div class="user-logout">
+                    <span class="fas fas fa-user"></span>
+                    <a class="hidden-logout" href="#">Logout</a>
+                </div>
+            </div>
+         </header>
+         <!-- Sidebar menu -->
+         <section id="side-navbar">
+                  <nav class="side-menubar">
+                <ul class="side-menubarList">
+                    <li id="dashboard-list-cont" class="active">
+                        <i class="fas fa-house-chimney"></i>
+                        <a href="../index.html" id="dashboard-list">Dashboard</a>
+                    </li> <br>
+                         <h5 class="transaction">Transactions</h5>
+                    <li>
+                        <i class="fas fas fa-credit-card"></i>
+                        <a href="../Billpayment/wallet.html">Fund wallet</a>
+                    </li>
+                     <div class="accordion accordion-flush" id="accordionFlushExample">
+                            <div class="accordion-item">
+                                <li class="accordion-button collapsed bg-white shadow-0 border-0 p-0" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                    <i class="fas fas far fa-lightbulb"></i>
+                                    <a href="#">Utility Payments</a>
+                                </li>
+                                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                    <div class="accordion-body">
+                                        <li class="p-2 text-start">
+                                          <a href="../Billpayment/electricity.html" class="mx-4">&CircleDot; Bill payment</a>
+                                        </li>
+                                        <li class="p-2 text-start">
+                                          <a href="../Billpayment/cable.html" class="mx-4">&CircleDot; Cable subscription</a>
+                                        </li>
+                                    </div>
+                                </div>
+                            </div>
+                         </div>
+                    <li>
+                        <i class="fas fas fa-phone-square-alt"></i>
+                        <a href="../Billpayment/airtime.html" class="">Buy Airtime</a>
+                    </li>
+                    <li>
+                        <i class="fas fas fa-signal"></i>
+                        <a href="../Billpayment/data.html">Buy Data</a>
+                    </li>
+                </ul>
+                <ul class="side-menubarList">
+                     <h5 class="transaction">Management</h5>
+                    <li>
+                        <i class="fas far fas fa-user"></i>
+                        <a href="../Billpayment/account.html">Account</a>
+                    </li>
+                    <li>
+                       <i class="fas fa-gear"></i>
+                       <a href="../Billpayment/edit-profile.html">Settings</a>
+                    </li>
+                </ul>
+                <ul class="side-menubarList">
+                     <h5 class="transaction">Support</h5>
+                    <li>
+                       <i class="fas fas far fa-question-circle"></i>
+                       <a href="../Billpayment/faqs.html">F.A.Qs</a>
+                    </li>
+                </ul>
+                <ul class="side-menubarList">
+                    <h5 class="transaction">EXIT</h5>
+                    <li>
+                        <i class="fas fa-sign-out-alt"></i>
+                        <a href="#">Logout</a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- Dashboard  -->
+
+               <div class="mainbar-container bg-white">
+                    <form action="" method="post" class="bg-white p-3 mx-1 my-0 shadow-lg"  id="electricityBillForm">
+                        <h5>Electricity Bill Payments</h5>
+                        <label for="disconame">Disco name*</label>
+                            <select id="disconame" name="disco" required>
+                                <option value="" disabled selected>------------</option>
+                                <option value="">Ikeja Electric</option>
+                                <option value="">Eko Electric</option>
+                                <option value="">Abuja Electric</option>
+                                <option value="">Kano Electric</option>
+                                <option value="">Enugu Electric</option>
+                                <option value="">Port Harcourt Electric</option>
+                                <option value="">Ibadan Electric</option>
+                                <option value="">Kaduna Electric</option>
+                                <option value="">Jos Electric</option>
+                                <option value="">Benin Electric</option>
+                            </select>
+                            <div>
+                                <label for="meter">Meter number*</label>
+                                <input type="tel" id="meterNumber" name="meterNumber" placeholder="" required>
+                            </div>
+                            <label for="meterType">MeterType*</label>
+                            <select id="meterType" name="meterType" required>
+                                <option value="" disabled selected>------------</option>
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                            </select>
+                            <div>
+                                <label for="billAmount">Amount*</label>
+                                <input type="tel" id="billAmount" name="billAmount" placeholder="" required>
+                            </div>
+                            <div>
+                                <label for="phone">Phone number*</label>
+                                <input type="number" id="phone" name="phone" placeholder="" required>
+                            </div>
+                            <button type="submit" class="btn-submitWithdraw mx-0 mt-4">Subscribe</button>
+                    </form>
+                </div>
+                    <a href="https://wa.me/2347057920320" title="Contact Us" target="_blank"  class="contact-link">
+                       <i class="fab fab fa-whatsapp"></i>
+                    </a> 
+            </div>
+      </section>
+
+      <footer class="text-start py-4 copyright">
+        <p>Copyright 2024. <a href="index.html">IBtech Data,</a> Lagos State. All right reserved.</p>
+      </footer>
+<script src="../script.js"></script>
+<script src="../bootstrap/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+     
+
+
