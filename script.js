@@ -1,17 +1,5 @@
 
-        const date = new Date();
-        const hour = date.getHours(); 
-        const greeting = document.getElementById('greeting');
-
-       if (hour >= 0 && hour < 12) {
-            greeting.textContent = 'Good Morning.'; 
-        } else if (hour >= 12 && hour < 17) {
-            greeting.textContent = 'Good Afternoon.'; 
-        } else {
-            greeting.textContent = 'Good Evening.';
-        }
 // amountVisiblility on user dashboard
-
   function togglePin() {
             let amountElement = document.getElementById('userBalance');
             let icon = document.getElementById('hiddenIcon');
@@ -126,4 +114,42 @@ function btnAccordion9() {
     accordion9.style.boxShadow = 'none'
     accordion9.style.color= 'black'
     accordion9.style.backgroundColor = 'transparent'
-  }      
+}    
+  
+
+// open and close menu bar
+document.addEventListener('DOMContentLoaded', () => {
+  let openBtn = document.querySelector('#openBtn');
+  let menuIcon = document.querySelector('.openbtn i');
+  let sideBar = document.querySelector('.side-menubar');
+  
+  openBtn.addEventListener('click', () => {
+    sideBar.classList.toggle('open')
+
+    if (sideBar.classList.contains('open')) {
+      menuIcon.classList.remove('fas', 'fa-bars')
+      menuIcon.classList.add('fas', 'fa-times')
+ 
+    }
+
+    else {
+      menuIcon.classList.remove('fas', 'fa-times')
+      menuIcon.classList.add('fas', 'fa-bars')
+  
+
+    }
+  });
+  
+});
+
+        const date = new Date();
+        const hour = date.getHours(); 
+        const greeting = document.getElementById('greeting');
+
+       if (hour >= 0 && hour < 12) {
+            greeting.innerHTML = 'Good morning.'; 
+        } else if (hour >= 12 && hour < 17) {
+            greeting.innerHTML = 'Good day.'; 
+        } else {
+            greeting.innerHTML = 'Good evening.';
+        }

@@ -33,13 +33,13 @@ html {
     margin: 0;
 }
 
-#openBtn{
+.openbtn{
     display: none;
     padding: 0px 9px;
     border: none;
     background-color: transparent;
     color: black;
-    font-size: 28px;
+    font-size: 27px;
 }
 
 body{
@@ -174,9 +174,10 @@ body{
     width: 22%;
     background-color: white;
     height:100vh;
-    overflow-y: auto;
-    position:sticky;
+    overflow-y: scroll;
+    position: sticky;
     top: 0;
+    left: 0;
     transition:transform 0.3s ease;
     padding:1rem;
 }
@@ -373,7 +374,6 @@ body{
 
 .contact-link:hover{
     background-color: green;
-    transform: scale(1);
     color: white;
 }
 
@@ -381,7 +381,6 @@ body{
     border-radius: 50%;
     background-color: white;
     padding: 2px 14px;
-    transform: scale(-1);
     text-align: center;
     transition:all .2s 1s;
     font-size:35px;
@@ -924,8 +923,27 @@ body{
 }
 
 /* Media screen at 768px */
+@media screen and (max-width:1800px) {
+    /* #side-navbar{
 
-@media screen and (max-width:1200px) {
+    
+    } */
+
+    /* .side-menubar{
+        position:static;
+        width: 250px;
+        height: 100vh;
+       overflow-y:scroll;
+        overflow-x: hidden; 
+         top: auto;
+         z-index: 1;
+        left: auto;
+        padding:10rem;
+        margin: auto; 
+    }
+     */
+}
+@media screen and (max-width:1400px) {
     
 .services-container{
     padding: 5px 0;
@@ -969,14 +987,18 @@ body{
 #side-navbar{
     display: flex;
     align-items: start;
-    flex-direction:column;
-    flex-wrap: wrap;
+    flex-direction:row;
+    flex-wrap: nowrap;
     width: 100%;
     padding: 0;
 }
 
-#openBtn{
+.openbtn{
     display:block;
+}
+
+.openbtn i{
+   transition:transform .3s ease;
 }
 
 .mainbar-container{
@@ -984,18 +1006,27 @@ body{
     /* height: 100vh; */
     background-color: whitesmoke;
     padding: 7px;
+    
 }
 
 .side-menubar{
-    width: 88%;
+    width: 350px; 
     background-color: white;
-    height: auto;
-    overflow:hidden;
-    position: sticky;
-    top: auto;
-    display: none;
+    height: 100vh;
+    overflow-x:hidden;
+    overflow-y: auto;
+    /* display: none; */
+    position: fixed;
+    z-index: 1;
+    transition: transform 0.3s ease;
+    top: 0;
+    transform: translateX(-100%);
+    left: 0;
     padding:  0;
-    margin: 15px auto;
+    margin: 0;
+}
+.side-menubar.open {
+    transform: translateX(0);
 }
 
 .bg-mainbar{
@@ -1198,7 +1229,22 @@ body{
     color: rgba(3, 3, 51, 0.854);
     line-height:33px;
 }
-
+.nav-logo-container-sidebar a{
+    display: flex;
+    padding: 10px 0;
+    margin-top: 45px;
+    justify-content: start;
+    font-family: ubuntu;
+    letter-spacing:2px;
+    color: navy;
+    font-weight: 900;
+    text-decoration: none;
+    font-size: 23px;
+    align-items: center;
+}
+.nav-logo-container{
+    display: none;
+}
 
 }
 
@@ -1241,3 +1287,5 @@ body{
     transition: .2s ease .1s;
 }  
 }
+  
+   
